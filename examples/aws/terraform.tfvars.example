@@ -1,0 +1,5 @@
+region = "us-east-1"
+ami = "ami-REPLACE_ME"
+instance_type = "t3.micro"
+name = "aws-multicloud-demo"
+allowed_ssh_cidr = "203.0.113.10/32"
