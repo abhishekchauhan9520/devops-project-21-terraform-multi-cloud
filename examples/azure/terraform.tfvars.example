@@ -1,0 +1,8 @@
+subscription_id = "REPLACE_ME"
+tenant_id = "REPLACE_ME"
+name = "azure-multicloud-demo"
+location = "eastus"
+subnet_id = "/subscriptions/REPLACE/resourceGroups/REPLACE/providers/Microsoft.Network/virtualNetworks/REPLACE/subnets/REPLACE"
+size = "Standard_B1s"
+admin_username = "azureadmin"
+ssh_public_key = "ssh-ed25519 AAAA_REPLACE_ME"
