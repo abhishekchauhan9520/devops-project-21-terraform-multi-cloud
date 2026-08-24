@@ -1,0 +1,23 @@
+name: Terraform Multi-Cloud Validation
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        cloud: [aws, azure, gcp]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.8"
+      - run: terraform fmt -check -recursive
+      - run: terraform init -backend=false
+        working-directory: examples/${{ matrix.cloud }}
+      - run: terraform validate
+        working-directory: examples/${{ matrix.cloud }}
+      - run: ../../tests/test_project.sh
